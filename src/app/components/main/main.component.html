@@ -1,0 +1,12 @@
+  <div class="btn-list">
+    <button mat-raised-button color="primary" [disabled]="!repos$" (click)="filterByParam('date')">Filter by date</button>
+    <button mat-raised-button color="primary" [disabled]="!repos$" (click)="filterByParam('size')">Filter by size less than 1mb</button>
+  </div>
+  
+  <app-search (searchEmit)="search($event)"></app-search>
+
+  <div class="repo-list" *ngIf="filteredRepos">
+    <mat-grid-list class="repo-item" cols="1" rowHeight="12:1" *ngFor="let repo of filteredRepos">
+      <mat-grid-tile routerLink="/repos/{{ repo.owner.login }}/{{repo.name}}">Name: {{ repo.name }}</mat-grid-tile>
+    </mat-grid-list>
+  </div>

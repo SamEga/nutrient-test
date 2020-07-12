@@ -1,0 +1,11 @@
+<div class="container">
+  <button mat-raised-button color="accent" routerLink="">Home</button>
+  <section *ngIf="repo">
+    <p>Login: {{ repo.owner.login }}</p>
+    <p>ID: {{ repo.owner.node_id }}</p>
+    <p>Name: {{ repo.name }}</p>
+    <p>Size: {{ repo.size }}</p>
+    <p>Private: {{ repo.private }}</p>
+    <p>Created: {{ repo.created_at }}</p>
+  </section>
+</div>
